@@ -16,9 +16,11 @@ perguntas = [
         'Resposta': '5',
     },
 ]
-lista_pergunta = []
-lista_opcoes = {}
-lista_resposta = []
+# lista_pergunta = []
+# for pergunta in perguntas:
+#     lista_opcoes = {}.update(perguntas['Opções']:pergunta.values)
+# print(lista_opcoes)
+# lista_resposta = []
 # for pergunta in perguntas:
 #     lista_pergunta.append(pergunta['Pergunta'])
 #     lista_opcoes.update({index(pergunta['Opções']) :pergunta['Opções']})
@@ -38,13 +40,21 @@ lista_resposta = []
 #     print('Opções')
 #     for opcao in lista_opcoes:
 #         print(lista_opcoes) 
+contador_acerto=0
 for item in perguntas:
     for chave, valor in item.items():
-        print(chave,valor)
+        if chave=='Pergunta':
+            print(f'{chave}: {valor}')
         if chave=='Opções':
-            print(f'{valor}\n')
+            cont=1
+            for resposta in item['Opções']:
+                print(f'{cont}){resposta}')
+                cont+=1
         if chave=='Resposta':
-            continue
-        
-        # print(Opcoes)
-    
+            Resposta_Usuario=input("Digite a resposta: ")
+            if Resposta_Usuario==item['Resposta']:
+                print(f'ACERTOU!!!!!')                
+                contador_acerto+=1
+            else: 
+                print(f'ERROU!!!!!')
+print(f'Você acertou:{contador_acerto} de {len(perguntas)}')
