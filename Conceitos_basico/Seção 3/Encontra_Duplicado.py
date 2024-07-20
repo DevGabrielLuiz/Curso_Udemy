@@ -25,13 +25,42 @@ lista_de_listas_de_inteiros = [
     [5, 3, 1, 8, 5, 7, 1, 8, 8, 7],
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
-l = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-s = set(l)
-if l == s:
-    print('true')
-else:
-    print('ovo')
+
+def Acha_Repetido(lista):
     
-for lista in lista_de_listas_de_inteiros:
+    
+# for lista in lista_de_listas_de_inteiros:
+    print(lista)
+    conjunto = set(lista)
+    c2= []
     for numero in lista:
-        ...
+        if numero not in conjunto:
+            continue
+        else:
+            c2.append(numero)  
+    if lista == conjunto:
+        print('-1')
+    else:
+        print(c2[2])
+        
+print(Acha_Repetido(lista_de_listas_de_inteiros[0]))
+
+def encontra_primeiro_duplicado(lista_de_inteiros):
+    numeros_checados = set()
+    primeiro_duplicado = -1
+
+    for numero in lista_de_inteiros:
+        if numero in numeros_checados:
+            primeiro_duplicado = numero
+            break
+
+        numeros_checados.add(numero)
+
+    return primeiro_duplicado
+
+
+for lista in lista_de_listas_de_inteiros:
+    print(
+        lista,
+        encontra_primeiro_duplicado(lista)
+    )
