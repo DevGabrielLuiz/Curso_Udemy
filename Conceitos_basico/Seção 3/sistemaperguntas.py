@@ -1,4 +1,6 @@
 # Exercício - sistema de perguntas e respostas
+
+
 perguntas = [
     {
         'Pergunta': 'Quanto é 2+2?',
@@ -39,7 +41,9 @@ perguntas = [
 # for pergunta in lista_pergunta:
 #     print('Opções')
 #     for opcao in lista_opcoes:
-#         print(lista_opcoes) 
+#         print(lista_opcoes)
+resps = {} 
+# resps[cont] = item.values() guardar pode ser importante
 contador_acerto=0
 for item in perguntas:
     for chave, valor in item.items():
@@ -48,6 +52,7 @@ for item in perguntas:
         if chave=='Opções':
             cont=1
             for resposta in item['Opções']:
+                
                 print(f'{cont}){resposta}')
                 cont+=1
         if chave=='Resposta':
@@ -57,4 +62,37 @@ for item in perguntas:
                 contador_acerto+=1
             else: 
                 print(f'ERROU!!!!!')
+
+print(f'Você acertou:{contador_acerto} de {len(perguntas)}')
+
+
+
+for pergunta in perguntas:
+    print('Pergunta',pergunta['Pergunta'])
+    print()
+    
+    opcoes = pergunta['Opções'] 
+    for i, opcao in enumerate(pergunta["Opções"]):
+        print(f'{i})', opcao)
+    print()
+    
+    escolha = input('Escolha uma opção: ')
+    
+    acertou = False    
+    escolha_int = None
+    qtd_opcoes = len(opcoes)
+    if escolha.isdigit():
+        escolha_int = int(escolha)
+    
+    if escolha_int is not None:
+        if escolha_int >= 0  and escolha_int < qtd_opcoes:
+            if opcoes[escolha_int] == pergunta['Resposta']:
+                acertou = True  
+    
+    if acertou:
+        contador_acerto+=1
+        print('Acertou')
+    else:
+        print("Errou")
+                
 print(f'Você acertou:{contador_acerto} de {len(perguntas)}')
