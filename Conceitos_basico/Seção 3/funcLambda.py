@@ -14,6 +14,9 @@
 # lista = [4, 32, 1, 34, 5, 6, 6, 21, ]
 # lista.sort(reverse=True)
 # sorted(lista)
+from tkinter import Y
+
+
 lista = [
     {'nome': 'Luiz', 'sobrenome': 'miranda'},
     {'nome': 'Maria', 'sobrenome': 'Oliveira'},
@@ -34,3 +37,5 @@ l2 = sorted(lista, key=lambda item: item['sobrenome'])
 
 exibir(l1)
 exibir(l2)
+lp = lambda x, w: x+w
+print(lp(1,2))
