@@ -36,8 +36,8 @@ def mostro_argumentos_nomeados(*args, **kwargs):
         print(chave, valor)
 
 
-# mostro_argumentos_nomeados(nome='Joana', qlq=123)
-# mostro_argumentos_nomeados(**pessoas_completa)
+mostro_argumentos_nomeados('Joana', qlq=123)
+mostro_argumentos_nomeados(**pessoas_completa)
 
 configuracoes = {
     'arg1': 1,
